@@ -77,9 +77,8 @@ export function ViewportGridProvider({ children, service }) {
           displaySetOptions,
           viewportLabel: viewportLabels[viewportIndex],
         };
-        const ret = { ...state, ...{ viewports } };
-        console.log('State is', JSON.stringify(ret, null, 1));
-        return ret;
+
+        return { ...state, ...{ viewports } };
       }
       case 'SET_LAYOUT': {
         const {
