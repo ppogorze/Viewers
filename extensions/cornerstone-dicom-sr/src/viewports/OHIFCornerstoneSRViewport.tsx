@@ -89,7 +89,6 @@ function OHIFCornerstoneSRViewport(props) {
         { servicesManager, extensionManager },
         displaySetInstanceUID
       );
-      console.log('Hydrated', SeriesInstanceUIDs);
       const displaySets = DisplaySetService.getDisplaySetsForSeries(
         SeriesInstanceUIDs[0]
       );
