@@ -23,11 +23,19 @@ import {
   DisplaySetService,
   ToolBarService,
   MeasurementService,
+  MeasurementServiceRegistration,
   ViewportGridService,
+  ViewportGridServiceRegistration,
   HangingProtocolService,
+  HangingProtocolServiceRegistration,
   pubSubServiceInterface,
+  PubSubService,
   UserAuthenticationService,
+  CustomizationService,
   CustomizationServiceRegistration,
+  StateSyncService,
+  StateSyncServiceRegistration,
+  Services,
 } from './services';
 
 import IWebApiDataSource from './DataSources/IWebApiDataSource';
@@ -58,20 +66,27 @@ const OHIF = {
   viewer: {},
   //
   CineService,
+  CustomizationService,
   CustomizationServiceRegistration,
+  StateSyncService,
+  StateSyncServiceRegistration,
   UIDialogService,
   UIModalService,
   UINotificationService,
   UIViewportDialogService,
   DisplaySetService,
   MeasurementService,
+  MeasurementServiceRegistration,
   ToolBarService, // TODO: TYPO
   ViewportGridService,
+  ViewportGridServiceRegistration,
   HangingProtocolService,
+  HangingProtocolServiceRegistration,
   UserAuthenticationService,
   IWebApiDataSource,
   DicomMetadataStore,
   pubSubServiceInterface,
+  PubSubService,
 };
 
 export {
@@ -95,20 +110,27 @@ export {
   //
   CineService,
   CustomizationServiceRegistration,
+  StateSyncService,
+  StateSyncServiceRegistration,
   UIDialogService,
   UIModalService,
   UINotificationService,
   UIViewportDialogService,
   DisplaySetService,
   MeasurementService,
+  MeasurementServiceRegistration,
   ToolBarService,
   ViewportGridService,
+  ViewportGridServiceRegistration,
   HangingProtocolService,
+  HangingProtocolServiceRegistration,
   UserAuthenticationService,
   IWebApiDataSource,
   DicomMetadataStore,
   pubSubServiceInterface,
+  PubSubService,
   Types,
+  Services,
 };
 
 export { OHIF };

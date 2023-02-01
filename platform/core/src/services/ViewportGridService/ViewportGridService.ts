@@ -4,7 +4,7 @@ const EVENTS = {
   ACTIVE_VIEWPORT_INDEX_CHANGED: 'event::activeviewportindexchanged',
 };
 
-class ViewportGridService {
+export default class ViewportGridService {
   serviceImplementation = {};
   EVENTS: { [key: string]: string };
   listeners = {};
@@ -61,8 +61,11 @@ class ViewportGridService {
 
   public setActiveViewportIndex(index) {
     this.serviceImplementation._setActiveViewportIndex(index);
+    const state = this.getState();
+    const viewportId = state.viewports[index]?.viewportOptions?.viewportId;
     this._broadcastEvent(this.EVENTS.ACTIVE_VIEWPORT_INDEX_CHANGED, {
       viewportIndex: index,
+      viewportId,
     });
   }
 
@@ -88,8 +91,12 @@ class ViewportGridService {
     this.serviceImplementation._setDisplaySetsForViewports(viewports);
   }
 
-  public setLayout({ numCols, numRows }) {
-    this.serviceImplementation._setLayout({ numCols, numRows });
+  public setLayout({ numCols, numRows, findOrCreateViewport = undefined }) {
+    this.serviceImplementation._setLayout({
+      numCols,
+      numRows,
+      findOrCreateViewport,
+    });
   }
 
   public reset() {
@@ -106,8 +113,8 @@ class ViewportGridService {
     this.serviceImplementation._onModeExit();
   }
 
-  public setCachedLayout({ cacheId, cachedLayout }) {
-    this.serviceImplementation._setCachedLayout({ cacheId, cachedLayout });
+  public setCachedLayout(cacheId?: string): void {
+    this.serviceImplementation._setCachedLayout(cacheId);
   }
 
   public restoreCachedLayout(cacheId) {
@@ -118,10 +125,3 @@ class ViewportGridService {
     this.serviceImplementation._set(state);
   }
 }
-
-export default {
-  name: 'ViewportGridService',
-  create: ({ configuration = {} }) => {
-    return new ViewportGridService();
-  },
-};

@@ -1,8 +1,11 @@
 import MeasurementService from './MeasurementService';
 
-export default {
-  name: 'MeasurementService',
+const MeasurementServiceRegistration = {
+  name: 'measurementService',
+  altName: 'MeasurementService',
   create: ({ configuration = {} }) => {
     return new MeasurementService();
   },
 };
+
+export { MeasurementService, MeasurementServiceRegistration };
